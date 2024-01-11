@@ -6,9 +6,7 @@ https://github.com/sj-824/unit_test
 任意のディレクトリを作成
 ```mkdir unit_test && cd unit_test```
 ## リポジトリをcloneする
-```git clone https://github.com/{自分のユーザー名}/unit_test.git```
-## ディレクトリの移動
-```cd unit_test```
+```git clone https://github.com/{自分のユーザー名}/unit_test.git .```
 ## コンテナの立ち上げ
 ```docker-compose up -d --build```
 ## phpunitのインストール
