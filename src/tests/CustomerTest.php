@@ -45,5 +45,25 @@ class CustomerTest extends TestCase
 
         $this->assertTrue($sut);
     }
+
+    /**
+     * @test
+     */
+    public function purchase_succeeds_with_mock(): void
+    {
+        $store = $this->createMock(Store::class);
+        $store
+            ->expects($this->once()) // 何回呼ばれてるか: 1回
+            ->method('removeInventory') // テスト対象のメソッド
+            ->with(
+                Production::Shampoo,
+                5
+            )->willReturn(true);
+        $customer = new Customer();
+
+        $sut = $customer->purchase($store, Production::Shampoo, 5);
+
+        $this->assertTrue($sut);
+    }
     
 }
